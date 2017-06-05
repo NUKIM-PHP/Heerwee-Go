@@ -8,7 +8,9 @@ class category extends CI_Model
     }
 
     public function get(){
-    	
+        return $this->db
+        ->get("category", $limit)
+        ->result();    	
     }
 
     public function input(){
