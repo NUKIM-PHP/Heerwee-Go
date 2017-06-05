@@ -7,15 +7,20 @@ class goods extends CI_Model
         parent::__construct();
     }
 
-    public function get(){
+    public function get($limit = 100){
+            return $this->db
+            ->get("goods", $limit)
+            ->result();
+    }
+
+    public function search($_POST){
+        $this->input->post(NULL,TRUE);
 
     }
 
-    public function search(){
-
-    }
-
-    public function delete(){
+    public function delete($id){
+        $this->db->where('id', $id);
+        $this->db->delete('goods');
 
     }
 
